@@ -72,6 +72,9 @@ PRODUCT_PACKAGES += \
     libstdc++.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
+PRODUCT_PACKAGES += \
+    Snap
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
