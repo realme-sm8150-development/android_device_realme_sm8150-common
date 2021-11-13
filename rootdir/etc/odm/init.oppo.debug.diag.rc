@@ -1,0 +1,20 @@
+##################################################################################
+### OPLUS_FEATURE_LOGKIT, OPPO All rights reserved.
+###
+### File: - init.oppo.diag.rc
+### Author: Canjie.Zheng@ANDROID.DEBUG
+###
+### ------------------------------- Revision History: ----------------------------
+### <author>                        <data>       <version>   <desc>
+### ------------------------------------------------------------------------------
+###   2016-03-18               Create this file
+##################################################################################
+
+on property:persist.sys.adddevdiag=1
+    write /sys/devices/virtual/diag/diag/uevent add
+on property:persist.sys.adddevdiag=0
+    write /sys/devices/virtual/diag/diag/uevent remove
+on property:persist.vendor.enable_ramdumps=0
+    setprop persist.vendor.ssr.enable_ramdumps 0
+on property:persist.vendor.enable_ramdumps=1
+    setprop persist.vendor.ssr.enable_ramdumps 1

@@ -265,6 +265,21 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+# Rootdir
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/etc/odm/,$(TARGET_COPY_OUT_ODM)/etc/init/hw) \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/etc/vendor/,$(TARGET_COPY_OUT_VENDOR)/etc/init/hw)
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/bin/,$(TARGET_COPY_OUT_VENDOR)/bin)
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/init.recovery.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init.recovery.qcom.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.qcom.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0-service.multihal \
